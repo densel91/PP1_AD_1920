@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -38,6 +39,10 @@ public class Aplicacion extends JFrame{
     
     public void crearPestanaTraductor(){
         JPanel panelTraductor = new JPanel();
+        
+        JTextArea txtOrigen = new JTextArea();
+        JTextArea txtDestino = new JTextArea();
+        
         JButton btnOrigen=new JButton("Origen");
         JButton btnDestino=new JButton("Destino");
         JButton btnTraducir=new JButton("Traducir");
@@ -48,7 +53,6 @@ public class Aplicacion extends JFrame{
         panelTraductor.add(btnTraducir, panelTraductor);
         
         pestanas.addTab("Traducir", panelTraductor);
-        
     }
     
     public void crearPestanaResultado(){
