@@ -5,12 +5,18 @@
  */
 package prjgrupo1;
 
+import java.awt.BorderLayout;
 import java.util.Set;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -39,19 +45,33 @@ public class Aplicacion extends JFrame{
     
     public void crearPestanaTraductor(){
         JPanel panelTraductor = new JPanel();
-        
-        JTextArea txtOrigen = new JTextArea();
-        JTextArea txtDestino = new JTextArea();
-        
+        // Panel Central
+        JPanel panelCentral = new JPanel();
+        panelCentral.setLayout(new BoxLayout(panelCentral, BoxLayout.Y_AXIS));
+        // PanelEste
+        JPanel panelEste = new JPanel();
+        panelEste.setLayout(new BoxLayout(panelEste, BoxLayout.Y_AXIS));
+        // La parte central del layout
+        JTextField txtOrigen = new JTextField("ArchivoOrigen");
+        JTextField txtDestino = new JTextField("ArchivoDestino");
+        String[] datos = {".txt", ".dat", ".obj", ".raf", ".xml"};
+        JComboBox cbFormatoOrigen = new JComboBox(datos);
+        JComboBox cbFormatoDestino = new JComboBox(datos);
         JButton btnOrigen=new JButton("Origen");
         JButton btnDestino=new JButton("Destino");
         JButton btnTraducir=new JButton("Traducir");
         
+        panelTraductor.add(panelCentral);
+        panelCentral.add(txtOrigen);
+        panelCentral.add(cbFormatoOrigen);
+        panelCentral.add(txtDestino);
+        panelCentral.add(cbFormatoDestino);
         
-        panelTraductor.add(btnOrigen, panelTraductor);
-        panelTraductor.add(btnDestino, panelTraductor);
-        panelTraductor.add(btnTraducir, panelTraductor);
-        
+        panelTraductor.add(panelEste, BorderLayout.EAST);
+        panelEste.add(btnOrigen);
+        panelEste.add(btnDestino);
+        // Panel sur --------------------------------------
+        panelTraductor.add(btnTraducir, BorderLayout.SOUTH);
         pestanas.addTab("Traducir", panelTraductor);
     }
     
