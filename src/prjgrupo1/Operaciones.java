@@ -9,6 +9,15 @@ package prjgrupo1;
  *
  * @author denisse
  */
-public class Operaciones {
-    
+public interface Operaciones {
+    public abstract void leerFicheroTXT();
+    public abstract void ecribirFicheroTXT();
+    public abstract void leerFicheroDAT();
+    public abstract void ecribirFicheroDAT();
+    public abstract void leerFicheroOBJ();
+    public abstract void ecribirFicheroOBJ();
+    public abstract void leerFicheroRAF();
+    public abstract void ecribirFicheroRAF();
+    public abstract void leerFicheroXML();
+    public abstract void ecribirFicheroXML();
 }

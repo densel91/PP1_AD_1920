@@ -13,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -28,12 +29,13 @@ public class Formulario extends JFrame{
     public Formulario()
     {
         //super("Traductor");
-        inicializarComponenetes();
-        crearPestanas();
+        inicializarComponentes();
+        anadirElementos();
+        //crearPestanas();
         opcionesVentana();
     }
     
-    public void inicializarComponenetes(){
+    public void inicializarComponentes(){
         pestanas = new JTabbedPane();
         panelTraductor = new JPanel();
         btnOrigen=new JButton("Origen");
@@ -43,12 +45,22 @@ public class Formulario extends JFrame{
         panelConsultas = new JPanel();
         jtOrigen = new JTextField();
         jtDestino = new JTextField();
-        crearPestanas();
     }
     
-    public void crearPestanas()
+    public void anadirElementos(){
+        panelTraductor.add(btnOrigen, panelTraductor);
+        panelTraductor.add(btnDestino, panelTraductor);
+        panelTraductor.add(btnTraducir, panelTraductor);
+        pestanas.addTab("Traducir", panelTraductor);
+        pestanas.addTab("Resultado", panelResultado);
+        pestanas.addTab("Consultas", panelConsultas);
+        add(pestanas);
+        
+    }
+    
+    /*public void crearPestanas()
     {
-        //pestanas = new JTabbedPane(); // Creamos un conjunto de pestanas 
+        pestanas = new JTabbedPane(); // Creamos un conjunto de pestanas 
         crearPestanaTraductor();
         crearPestanaResultado();
         crearPestanaConsultas();
@@ -57,10 +69,10 @@ public class Formulario extends JFrame{
     }
     
     public void crearPestanaTraductor(){
-        /*JPanel panelTraductor = new JPanel();
+        JPanel panelTraductor = new JPanel();
         JButton btnOrigen=new JButton("Origen");
         JButton btnDestino=new JButton("Destino");
-        JButton btnTraducir=new JButton("Traducir");*/
+        JButton btnTraducir=new JButton("Traducir");
         panelTraductor.add(btnOrigen, panelTraductor);
         panelTraductor.add(btnDestino, panelTraductor);
         panelTraductor.add(btnTraducir, panelTraductor);
@@ -70,20 +82,22 @@ public class Formulario extends JFrame{
     }
     
     public void crearPestanaResultado(){
-        //JPanel panelResultado = new JPanel();
+        JPanel panelResultado = new JPanel();
         pestanas.addTab("Resultado", panelResultado);
     }
     
     public void crearPestanaConsultas(){
-        //JPanel panelConsultas = new JPanel();
+        JPanel panelConsultas = new JPanel();
         pestanas.addTab("Consultas", panelConsultas);
-    }
+    }*/
     
     public void opcionesVentana()
     {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
         setVisible(true);
+        setLocationRelativeTo(null);
+        setTitle("Traductor");
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     
     public void clickEnBotonOrigen(ActionEvent e){
@@ -130,6 +144,10 @@ public class Formulario extends JFrame{
                 //clickEnBotonTraducir(e);
             }
         });
+    }
+    
+    public static void main(String[] args) {
+        Formulario fr = new Formulario();
     }
                
 }
