@@ -7,16 +7,8 @@ package prjgrupo1;
 
 /**
  *
- * @author Vespertino
+ * @author denisse
  */
-public class Principal {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        Formulario app= new Formulario();
-        
-    }
+public class Operaciones {
     
 }
