@@ -17,7 +17,7 @@ public class Implementacion implements Operaciones{
 
     public Implementacion() {
         try {
-            f = new File("fichero\\Productos.txt");
+            f = new File("db\\cursos.txt");
             if (!f.exists())
                 f.createNewFile();
         } catch (Exception e) {
